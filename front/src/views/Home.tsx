@@ -1,11 +1,9 @@
 import ItemsList from "../components/pages/Home/ItemsList/ItemsList";
-import Appbar from "../components/shared/Appbar/Appbar";
 
 
 export default function Home() {
     return (
         <>
-            <Appbar />
             <div className="flex flex-col items-center min-h-screen w-full bg-gray-100 p-8">
                 <h1 className="text-4xl font-bold text-gray-800 mb-4 drop-shadow">
                     Bem-vindo à nossa loja!

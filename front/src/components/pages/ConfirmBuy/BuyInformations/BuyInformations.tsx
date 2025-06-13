@@ -166,9 +166,13 @@ export default function BuyInformation() {
                     <p id="parent-modal-description" className="text-center font-semibold flex justify-center mt-5 text-xl">
                         Deseja Prosseguir?
                     </p>
-                    <div className="flex justify-center mt-10">
-                        <Button onClick={handleConfirmPurchase} color="success">Sim</Button>
-                        <Button onClick={handleCloseModal} color="error">Não</Button>
+                    <div className=" flex justify-around mt-10">
+                        <div>
+                            <Button onClick={handleConfirmPurchase} variant="contained" color="info">Sim</Button>
+                        </div>
+                        <div>
+                            <Button onClick={handleCloseModal} variant="contained" color="error">Não</Button>
+                        </div>
                     </div>
                 </Box>
             </Modal>

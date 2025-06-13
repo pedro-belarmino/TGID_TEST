@@ -1,11 +1,9 @@
-import Appbar from "../components/shared/Appbar/Appbar";
 import ItemVisualization from "../components/pages/Product/ItemVisualization/ItemVisualization";
 import { Box, Container } from "@mui/material";
 
 export default function Product() {
     return (
         <Box>
-            <Appbar />
 
             <Container
                 maxWidth={false}
