@@ -1,5 +1,5 @@
-import ItemsList from "../components/pages/Home/ItemsList";
-import Appbar from "../components/shared/Appbar";
+import ItemsList from "../components/pages/Home/ItemsList/ItemsList";
+import Appbar from "../components/shared/Appbar/Appbar";
 
 
 export default function Home() {

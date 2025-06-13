@@ -1,5 +1,3 @@
-import axios from "axios"
-import { useEffect, useState } from "react"
 import {
     Box,
     Typography,
@@ -11,73 +9,28 @@ import {
     useTheme,
     Snackbar,
     Alert
-} from "@mui/material"
-import ArrowBackIcon from "@mui/icons-material/ArrowBack"
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart"
-import { useNavigate } from "react-router-dom"
-
-interface Produto {
-    id: string
-    nome: string
-    descricao: string
-    preco: number
-    categoriaId: string
-    image: string
-}
+} from "@mui/material";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { useItemVisualizationController } from "./ItemVisualization.controller";
 
 export default function ItemVisualization() {
-    const [produto, setProduto] = useState<Produto | null>(null)
-    const [loading, setLoading] = useState(true)
-
-    const [successSnackbar, setSuccessSnackbar] = useState(false)
-
-    const theme = useTheme()
-    const navigate = useNavigate()
-
-    function handleClose() { setSuccessSnackbar(false) }
-
-
-    useEffect(() => {
-        const getProduto = async (id: string) => {
-            try {
-                const response = await axios.get<Produto>(`http://localhost:3000/produtos/${id}`)
-                setProduto(response.data)
-            } catch (error) {
-                console.error("Erro ao buscar produto:", error)
-            } finally {
-                setLoading(false)
-            }
-        }
-
-        const getUrl = window.location.href
-        const getId = new URL(getUrl)
-        const idParam = getId.searchParams.get("id")
-        if (idParam) {
-            getProduto(idParam)
-        } else {
-            setLoading(false)
-        }
-    }, [])
-
-    const toStorageCart = () => {
-        const carrinhoLocal = localStorage.getItem("carrinho")
-        const carrinhoAtual: string[] = carrinhoLocal ? JSON.parse(carrinhoLocal) : []
-
-        if (produto && !carrinhoAtual.includes(produto.id)) {
-            const novoCarrinho = [...carrinhoAtual, produto.id]
-            localStorage.setItem("carrinho", JSON.stringify(novoCarrinho))
-        }
-        setSuccessSnackbar(true)
-        window.dispatchEvent(new Event("storage"))
-    }
-
+    const theme = useTheme();
+    const {
+        produto,
+        loading,
+        successSnackbar,
+        toStorageCart,
+        handleCloseSnackbar,
+        handleGoBack
+    } = useItemVisualizationController();
 
     if (loading) {
         return (
             <Box display="flex" justifyContent="center" alignItems="center" minHeight="80vh">
                 <CircularProgress />
             </Box>
-        )
+        );
     }
 
     if (!produto) {
@@ -87,7 +40,7 @@ export default function ItemVisualization() {
                     Produto não encontrado.
                 </Typography>
             </Box>
-        )
+        );
     }
 
     return (
@@ -107,7 +60,7 @@ export default function ItemVisualization() {
                 {/* Botão de voltar */}
                 <Box width="100%" maxWidth={1000} display="flex" justifyContent="flex-start">
                     <Button
-                        onClick={() => navigate(-1)}
+                        onClick={handleGoBack}
                         variant="outlined"
                         startIcon={<ArrowBackIcon />}
                         sx={{ mb: 1 }}
@@ -177,9 +130,9 @@ export default function ItemVisualization() {
                     </CardContent>
                 </Card>
             </Box>
-            <Snackbar open={successSnackbar} autoHideDuration={2000} onClose={handleClose}>
+            <Snackbar open={successSnackbar} autoHideDuration={2000} onClose={handleCloseSnackbar}>
                 <Alert
-                    onClose={handleClose}
+                    onClose={handleCloseSnackbar}
                     severity="success"
                     variant="filled"
                     sx={{ width: '100%' }}
@@ -188,5 +141,5 @@ export default function ItemVisualization() {
                 </Alert>
             </Snackbar>
         </>
-    )
+    );
 }

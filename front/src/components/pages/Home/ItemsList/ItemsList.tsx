@@ -1,63 +1,26 @@
-import { useEffect, useState } from 'react'
-import axios from 'axios'
 import {
     MenuItem,
     FormControl,
     Select,
     InputLabel,
-    type SelectChangeEvent,
     Card,
     CardContent,
     CardMedia,
     Typography,
     useTheme,
-} from '@mui/material'
-import { useNavigate } from 'react-router-dom'
-
-interface Product {
-    id: string
-    nome: string
-    descricao: string
-    preco: number
-    categoriaId: string
-    image: string
-}
-
-interface Categorie {
-    id: string
-    nome: string
-}
+} from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import { useItemsListController } from './ItemsList.controller';
 
 export default function ItemsList() {
-    const theme = useTheme()
-    const navigate = useNavigate()
-
-    const [products, setProducts] = useState<Product[]>([])
-    const [categories, setCategories] = useState<Categorie[]>([])
-    const [selectedCategorie, setSelectedCategorie] = useState<string>('')
-
-    useEffect(() => {
-        axios.get('http://localhost:3000/produtos').then(res => {
-            setProducts(res.data)
-        })
-
-        axios.get('http://localhost:3000/categorias').then(res => {
-            setCategories(res.data)
-        })
-    }, [])
-
-    const handleCategoriaChange = (event: SelectChangeEvent) => {
-        const categoriaId = event.target.value
-        setSelectedCategorie(categoriaId)
-
-        const url = categoriaId
-            ? `http://localhost:3000/produtos?categoriaId=${categoriaId}`
-            : 'http://localhost:3000/produtos'
-
-        axios.get(url).then(res => {
-            setProducts(res.data)
-        })
-    }
+    const theme = useTheme();
+    const navigate = useNavigate();
+    const {
+        products,
+        categories,
+        selectedCategorie,
+        handleCategoriaChange
+    } = useItemsListController();
 
     return (
         <div className="w-full p-4 space-y-6">
@@ -72,8 +35,7 @@ export default function ItemsList() {
                     >
                         <MenuItem value="">Todas as Categorias</MenuItem>
                         {categories.map(cat => (
-                            <MenuItem key={cat.id} value={cat.id}
-                            >
+                            <MenuItem key={cat.id} value={cat.id}>
                                 {cat.nome}
                             </MenuItem>
                         ))}
@@ -133,7 +95,6 @@ export default function ItemsList() {
                     </div>
                 ))}
             </div>
-
         </div>
-    )
+    );
 }

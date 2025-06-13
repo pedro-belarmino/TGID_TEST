@@ -11,111 +11,25 @@ import {
     Snackbar,
     Alert,
     Modal
-} from "@mui/material"
-import axios from "axios"
-import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
-
-interface Product {
-    id: string
-    nome: string
-    preco: number
-    image: string
-}
-
-interface Informations {
-    name: string
-    telephone: string
-    email: string
-    address: string
-}
+} from "@mui/material";
+import { useBuyInformationController } from "./BuyInformation.controller";
 
 export default function BuyInformation() {
-    const theme = useTheme()
-    const navigate = useNavigate()
+    const theme = useTheme();
 
-    const [products, setProducts] = useState<Product[]>([])
-    const [informations, setInformations] = useState<Informations>({
-        name: "",
-        telephone: "",
-        email: "",
-        address: ""
-    })
-    const [errors, setErrors] = useState<Partial<Informations>>({})
-    const [validationSnackbar, setValidationSnackbar] = useState(false)
-
-    const [modal, setModal] = useState(false)
-
-    function handleCloseModal() { setModal(false) }
-
-    function handleClose() { setValidationSnackbar(false) }
-
-    const total = products.reduce((sum, p) => sum + p.preco, 0)
-
-    useEffect(() => {
-        const sotageCartIds: string[] = JSON.parse(localStorage.getItem("carrinho") || "[]")
-
-        const fetchProducts = async () => {
-            const response = await axios.get("http://localhost:3000/produtos")
-            const selecionados = response.data.filter((p: Product) => sotageCartIds.includes(p.id))
-            setProducts(selecionados)
-        }
-        fetchProducts()
-    }, [])
-
-    const handleChange = (field: keyof Informations, value: string) => {
-        let processedValue = value
-
-        switch (field) {
-            case 'telephone':
-                processedValue = value.replace(/\D/g, '')
-                break
-            case 'email':
-                if (value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
-                    setErrors({ ...errors, email: "Email inválido" })
-                } else {
-                    const newErrors = { ...errors }
-                    delete newErrors.email
-                    setErrors(newErrors)
-                }
-                break
-            case 'name':
-                if (value && value.length < 2) {
-                    setErrors({ ...errors, name: "Nome muito curto" })
-                } else {
-                    const newErrors = { ...errors }
-                    delete newErrors.name
-                    setErrors(newErrors)
-                }
-                break
-            case 'address':
-                if (value && value.length < 5) {
-                    setErrors({ ...errors, address: "Endereço muito curto" })
-                } else {
-                    const newErrors = { ...errors }
-                    delete newErrors.address
-                    setErrors(newErrors)
-                }
-                break
-        }
-
-        setInformations({
-            ...informations,
-            [field]: processedValue
-        })
-    }
-
-    const handleFinalizarCompra = () => {
-        const hasErrors = Object.keys(errors).length > 0
-        const hasEmptyFields = Object.values(informations).some(v => !v.trim())
-
-        if (hasErrors || hasEmptyFields) {
-            setValidationSnackbar(true)
-            return
-        } else {
-            setModal(true)
-        }
-    }
+    const {
+        products,
+        informations,
+        errors,
+        validationSnackbar,
+        modal,
+        total,
+        handleChange,
+        handleFinalizarCompra,
+        handleCloseModal,
+        handleCloseSnackbar,
+        handleConfirmPurchase
+    } = useBuyInformationController();
 
     return (
         <>
@@ -225,7 +139,6 @@ export default function BuyInformation() {
                 </Box>
             </Box>
 
-
             <Modal
                 open={modal}
                 onClose={handleCloseModal}
@@ -254,10 +167,7 @@ export default function BuyInformation() {
                         Deseja Prosseguir?
                     </p>
                     <div className="flex justify-center mt-10">
-                        <button onClick={() => {
-                            navigate('/compra-confirmada');
-                            localStorage.removeItem('carrinho')
-                        }} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                        <button onClick={handleConfirmPurchase} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                             Sim
                         </button>
 
@@ -269,10 +179,9 @@ export default function BuyInformation() {
                 </Box>
             </Modal>
 
-
-            <Snackbar open={validationSnackbar} autoHideDuration={2000} onClose={handleClose}>
+            <Snackbar open={validationSnackbar} autoHideDuration={2000} onClose={handleCloseSnackbar}>
                 <Alert
-                    onClose={handleClose}
+                    onClose={handleCloseSnackbar}
                     severity="error"
                     variant="standard"
                     sx={{ width: '100%' }}
@@ -281,6 +190,5 @@ export default function BuyInformation() {
                 </Alert>
             </Snackbar>
         </>
-
-    )
+    );
 }

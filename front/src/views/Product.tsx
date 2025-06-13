@@ -1,5 +1,5 @@
-import Appbar from "../components/shared/Appbar";
-import ItemVisualization from "../components/pages/Product/ItemVisualization";
+import Appbar from "../components/shared/Appbar/Appbar";
+import ItemVisualization from "../components/pages/Product/ItemVisualization/ItemVisualization";
 import { Box, Container } from "@mui/material";
 
 export default function Product() {
