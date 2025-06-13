@@ -8,6 +8,8 @@ export function useItemsListController() {
     const [categories, setCategories] = useState<Categorie[]>([]);
     const [selectedCategorie, setSelectedCategorie] = useState<string>('');
 
+    const [sortOrder, setSortOrder] = useState<string>('1');
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -24,6 +26,29 @@ export function useItemsListController() {
 
         fetchData();
     }, []);
+
+
+    const getFilteredAndSortedProducts = () => {
+        let filtered = [...products];
+
+        // A ordenação será aplicada depois de já termos os produtos da categoria ou todos, conforme o selectedCategorie
+        switch (sortOrder) {
+            case '2': // Menor preço
+                filtered.sort((a, b) => a.preco - b.preco);
+                break;
+            case '3': // Maior preço
+                filtered.sort((a, b) => b.preco - a.preco);
+                break;
+            default:
+                break; // Padrão, sem ordenação específica
+        }
+
+        return filtered;
+    };
+
+    const handleSortOrderChange = (event: SelectChangeEvent) => {
+        setSortOrder(event.target.value);
+    };
 
     const handleCategoriaChange = async (event: SelectChangeEvent) => {
         const categoriaId = event.target.value;
@@ -42,9 +67,11 @@ export function useItemsListController() {
     };
 
     return {
-        products,
         categories,
         selectedCategorie,
-        handleCategoriaChange
+        sortOrder,
+        handleCategoriaChange,
+        handleSortOrderChange,
+        products: getFilteredAndSortedProducts(),
     };
 }

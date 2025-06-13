@@ -11,7 +11,7 @@ import {
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useItemsListController } from './ItemsList.controller';
-
+import SwapVertIcon from '@mui/icons-material/SwapVert';
 export default function ItemsList() {
     const theme = useTheme();
     const navigate = useNavigate();
@@ -19,13 +19,15 @@ export default function ItemsList() {
         products,
         categories,
         selectedCategorie,
-        handleCategoriaChange
+        sortOrder,
+        handleCategoriaChange,
+        handleSortOrderChange,
     } = useItemsListController();
 
     return (
         <div className="w-full p-4 space-y-6">
-            <div className="w-full max-w-xs">
-                <FormControl fullWidth>
+            <div className='flex justify-between'>
+                <FormControl className='w-6/12 max-w-[300px] min-w-80'>
                     <InputLabel id="categoria-label">Categoria</InputLabel>
                     <Select
                         labelId="categoria-label"
@@ -41,6 +43,20 @@ export default function ItemsList() {
                         ))}
                     </Select>
                 </FormControl>
+                <FormControl className='w-6/12 max-w-[300px] min-w-80'>
+                    <InputLabel id="categoria-label"><SwapVertIcon />Ordernar Por:</InputLabel>
+                    <Select
+                        labelId="categoria-label"
+                        label="___Ordenar Por:"
+                        value={sortOrder}
+                        onChange={handleSortOrderChange}
+                    >
+                        <MenuItem value="1">Padrão</MenuItem>
+                        <MenuItem value="2">Menor Preço</MenuItem>
+                        <MenuItem value="3">Meior Preço</MenuItem>
+                    </Select>
+                </FormControl>
+
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4">
