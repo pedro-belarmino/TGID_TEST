@@ -16,8 +16,8 @@ function App() {
           <Route path="/" element={<Template />} >
             <Route path="/" element={<Home />} />
             <Route path="/item" element={<Product />} />
-            <Route path="/adicionar-item" element={<AddItem />} />
           </Route>
+          <Route path="/adicionar-item" element={<AddItem />} />
           <Route path="/compra-confirmada" element={<ConfirmatedPurchase />} />
           <Route path="/compra" element={<ConfirmBuy />} />
 

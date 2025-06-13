@@ -1,138 +1,138 @@
 {
-    "produtos": [
-        {
-            "id": "1",
-            "nome": "Mouse Gamer RGB",
-            "descricao": "Mouse ergonômico com iluminação RGB e alta precisão.",
-            "preco": 129.99,
-            "categoriaId": "1",
-            "image": "https://leonora.vteximg.com.br/arquivos/ids/163588-1000-1000/mouse-gamer-rgb-7-botoes-7200-dpis-letron-74315--1.png?v=638037739255200000"
-        },
-        {
-            "id": "2",
-            "nome": "Teclado Mecânico",
-            "descricao": "Teclado mecânico com switches azuis e iluminação LED.",
-            "preco": 249.90,
-            "categoriaId": "1",
-            "image": "https://www.logitechstore.com.br/media/catalog/product/cache/105e6f420716e0751863c4b81f527d17/l/o/logitech21.png"
-        },
-        {
-            "id": "3",
-            "nome": "Headset Surround",
-            "descricao": "Fone de ouvido com som surround 7.1 e microfone retrátil.",
-            "preco": 189.50,
-            "categoriaId": "1",
-            "image": "https://www.logitechstore.com.br/media/catalog/product/cache/105e6f420716e0751863c4b81f527d17/l/o/logitech098.png"
-        },
-        {
-            "id": "4",
-            "nome": "Mousepad XXL",
-            "descricao": "Mousepad antiderrapante de tamanho extra grande.",
-            "preco": 59.90,
-            "categoriaId": "1",
-            "image": "https://resource.logitech.com/w_800,c_lpad,ar_1:1,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mouse-pad-studio-series/gallery/logitech-mouse-pad-studio-series-corner-view-graphite.png?v=1"
-        },
-        {
-            "id": "5",
-            "nome": "Webcam Full HD",
-            "descricao": "Webcam com resolução 1080p e microfone embutido.",
-            "preco": 139.90,
-            "categoriaId": "1",
-            "image": "https://www.logitechstore.com.br/media/catalog/product/cache/105e6f420716e0751863c4b81f527d17/c/9/c920.png"
-        },
-        {
-            "id": "6",
-            "nome": "SSD 1TB NVMe",
-            "descricao": "Unidade de armazenamento ultrarrápida com 1TB de capacidade.",
-            "preco": 499.99,
-            "categoriaId": "2",
-            "image": "https://www.westerndigital.com/content/dam/store/en-us/assets/products/internal-storage/wd-blue-sn580-nvme-ssd/gallery/wd-blue-sn580-nvme-ssd-250gb-left.png.thumb.1280.1280.png"
-        },
-        {
-            "id": "7",
-            "nome": "HD Externo 2TB",
-            "descricao": "Disco rígido externo com 2TB de capacidade e USB 3.0.",
-            "preco": 379.90,
-            "categoriaId": "2",
-            "image": "https://cdn.dooca.store/1841/products/hd-2tb-mpc.png?v=1606254103&webp=0"
-        },
-        {
-            "id": "8",
-            "nome": "Pen Drive 128GB",
-            "descricao": "Pen Drive compacto e rápido com 128GB de espaço.",
-            "preco": 79.99,
-            "categoriaId": "2",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/SanDisk_Cruzer_Micro.png/1200px-SanDisk_Cruzer_Micro.png"
-        },
-        {
-            "id": "9",
-            "nome": "Placa de Vídeo 12GB",
-            "descricao": "Placa gráfica potente com 8GB GDDR6 para games e edição.",
-            "preco": 1699.00,
-            "categoriaId": "2",
-            "image": "https://dlcdnwebimgs.asus.com/gain/45B3F0A3-98F3-4940-A420-96384E8A4DC3/w717/h525"
-        },
-        {
-            "id": "10",
-            "nome": "Fonte 800W 80 Plus",
-            "descricao": "Fonte de alimentação certificada, ideal para PCs gamers.",
-            "preco": 359.90,
-            "categoriaId": "2",
-            "image": "https://images.tcdn.com.br/img/img_prod/15959/fonte_gamemax_gx800_800w_80_plus_gold_pfc_ativo_black_gx800wbkpss7710br_19977_1_da05042bf79e740b276d0f25cc18d640.png"
-        },
-        {
-            "id": "11",
-            "nome": "Notebook i5 8GB RAM",
-            "descricao": "Notebook com processador Intel i5, 8GB RAM e SSD de 256GB.",
-            "preco": 2899.00,
-            "categoriaId": "3",
-            "image": "https://conteudoproduto.magazineluiza.com.br/23/236463500/assets/images/memoria-mb-img.png"
-        },
-        {
-            "id": "12",
-            "nome": "Monitor 24” Full HD",
-            "descricao": "Monitor LED com 24 polegadas, resolução 1080p.",
-            "preco": 899.90,
-            "categoriaId": "3",
-            "image": "https://t17208.vtexassets.com/arquivos/ids/161466/Monitor-Gamer-LG-24--Full-HD-144-Hz-Widescreen-24GL600F.png?v=638780083535300000"
-        },
-        {
-            "id": "13",
-            "nome": "Impressora Multifuncional",
-            "descricao": "Impressora com função de cópia, digitalização e impressão.",
-            "preco": 659.00,
-            "categoriaId": "3",
-            "image": "https://br-media.hptiendaenlinea.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/2/R/2R7F5A-1_T1680771605.png"
-        },
-        {
-            "id": "14",
-            "nome": "Cadeira Gamer Reclinável",
-            "descricao": "Cadeira confortável com apoio lombar e ajuste de altura.",
-            "preco": 1249.00,
-            "categoriaId": "3",
-            "image": "https://img.terabyteshop.com.br/produto/g/cadeira-gamer-terabyte-style-reclinavel-4d-rosa_169102.png"
-        },
-        {
-            "id": "15",
-            "nome": "Estabilizador 500VA",
-            "descricao": "Estabilizador para proteger equipamentos eletrônicos.",
-            "preco": 199.00,
-            "categoriaId": "3",
-            "image": "https://eletrotrafo.vteximg.com.br/arquivos/ids/183165-1000-1000/Estabilizadores-Force-Line-1.png?v=638628655003670000"
-        }
-    ],
-    "categorias": [
-        {
-            "id": "1",
-            "nome": "Periféricos"
-        },
-        {
-            "id": "2",
-            "nome": "Componentes"
-        },
-        {
-            "id": "3",
-            "nome": "Equipamentos"
-        }
-    ]
+  "produtos": [
+    {
+      "id": "1",
+      "nome": "Mouse Gamer RGB",
+      "descricao": "Mouse ergonômico com iluminação RGB e alta precisão.",
+      "preco": 129.99,
+      "categoriaId": "1",
+      "image": "https://leonora.vteximg.com.br/arquivos/ids/163588-1000-1000/mouse-gamer-rgb-7-botoes-7200-dpis-letron-74315--1.png?v=638037739255200000"
+    },
+    {
+      "id": "2",
+      "nome": "Teclado Mecânico",
+      "descricao": "Teclado mecânico com switches azuis e iluminação LED.",
+      "preco": 249.9,
+      "categoriaId": "1",
+      "image": "https://www.logitechstore.com.br/media/catalog/product/cache/105e6f420716e0751863c4b81f527d17/l/o/logitech21.png"
+    },
+    {
+      "id": "3",
+      "nome": "Headset Surround",
+      "descricao": "Fone de ouvido com som surround 7.1 e microfone retrátil.",
+      "preco": 189.5,
+      "categoriaId": "1",
+      "image": "https://www.logitechstore.com.br/media/catalog/product/cache/105e6f420716e0751863c4b81f527d17/l/o/logitech098.png"
+    },
+    {
+      "id": "4",
+      "nome": "Mousepad XXL",
+      "descricao": "Mousepad antiderrapante de tamanho extra grande.",
+      "preco": 59.9,
+      "categoriaId": "1",
+      "image": "https://resource.logitech.com/w_800,c_lpad,ar_1:1,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mouse-pad-studio-series/gallery/logitech-mouse-pad-studio-series-corner-view-graphite.png?v=1"
+    },
+    {
+      "id": "5",
+      "nome": "Webcam Full HD",
+      "descricao": "Webcam com resolução 1080p e microfone embutido.",
+      "preco": 139.9,
+      "categoriaId": "1",
+      "image": "https://www.logitechstore.com.br/media/catalog/product/cache/105e6f420716e0751863c4b81f527d17/c/9/c920.png"
+    },
+    {
+      "id": "6",
+      "nome": "SSD 1TB NVMe",
+      "descricao": "Unidade de armazenamento ultrarrápida com 1TB de capacidade.",
+      "preco": 499.99,
+      "categoriaId": "2",
+      "image": "https://www.westerndigital.com/content/dam/store/en-us/assets/products/internal-storage/wd-blue-sn580-nvme-ssd/gallery/wd-blue-sn580-nvme-ssd-250gb-left.png.thumb.1280.1280.png"
+    },
+    {
+      "id": "7",
+      "nome": "HD Externo 2TB",
+      "descricao": "Disco rígido externo com 2TB de capacidade e USB 3.0.",
+      "preco": 379.9,
+      "categoriaId": "2",
+      "image": "https://cdn.dooca.store/1841/products/hd-2tb-mpc.png?v=1606254103&webp=0"
+    },
+    {
+      "id": "8",
+      "nome": "Pen Drive 128GB",
+      "descricao": "Pen Drive compacto e rápido com 128GB de espaço.",
+      "preco": 79.99,
+      "categoriaId": "2",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/SanDisk_Cruzer_Micro.png/1200px-SanDisk_Cruzer_Micro.png"
+    },
+    {
+      "id": "9",
+      "nome": "Placa de Vídeo 12GB",
+      "descricao": "Placa gráfica potente com 8GB GDDR6 para games e edição.",
+      "preco": 1699,
+      "categoriaId": "2",
+      "image": "https://dlcdnwebimgs.asus.com/gain/45B3F0A3-98F3-4940-A420-96384E8A4DC3/w717/h525"
+    },
+    {
+      "id": "10",
+      "nome": "Fonte 800W 80 Plus",
+      "descricao": "Fonte de alimentação certificada, ideal para PCs gamers.",
+      "preco": 359.9,
+      "categoriaId": "2",
+      "image": "https://images.tcdn.com.br/img/img_prod/15959/fonte_gamemax_gx800_800w_80_plus_gold_pfc_ativo_black_gx800wbkpss7710br_19977_1_da05042bf79e740b276d0f25cc18d640.png"
+    },
+    {
+      "id": "11",
+      "nome": "Notebook i5 8GB RAM",
+      "descricao": "Notebook com processador Intel i5, 8GB RAM e SSD de 256GB.",
+      "preco": 2899,
+      "categoriaId": "3",
+      "image": "https://conteudoproduto.magazineluiza.com.br/23/236463500/assets/images/memoria-mb-img.png"
+    },
+    {
+      "id": "12",
+      "nome": "Monitor 24” Full HD",
+      "descricao": "Monitor LED com 24 polegadas, resolução 1080p.",
+      "preco": 899.9,
+      "categoriaId": "3",
+      "image": "https://t17208.vtexassets.com/arquivos/ids/161466/Monitor-Gamer-LG-24--Full-HD-144-Hz-Widescreen-24GL600F.png?v=638780083535300000"
+    },
+    {
+      "id": "13",
+      "nome": "Impressora Multifuncional",
+      "descricao": "Impressora com função de cópia, digitalização e impressão.",
+      "preco": 659,
+      "categoriaId": "3",
+      "image": "https://br-media.hptiendaenlinea.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/2/R/2R7F5A-1_T1680771605.png"
+    },
+    {
+      "id": "14",
+      "nome": "Cadeira Gamer Reclinável",
+      "descricao": "Cadeira confortável com apoio lombar e ajuste de altura.",
+      "preco": 1249,
+      "categoriaId": "3",
+      "image": "https://img.terabyteshop.com.br/produto/g/cadeira-gamer-terabyte-style-reclinavel-4d-rosa_169102.png"
+    },
+    {
+      "id": "15",
+      "nome": "Estabilizador 500VA",
+      "descricao": "Estabilizador para proteger equipamentos eletrônicos.",
+      "preco": 199,
+      "categoriaId": "3",
+      "image": "https://eletrotrafo.vteximg.com.br/arquivos/ids/183165-1000-1000/Estabilizadores-Force-Line-1.png?v=638628655003670000"
+    }
+  ],
+  "categorias": [
+    {
+      "id": "1",
+      "nome": "Periféricos"
+    },
+    {
+      "id": "2",
+      "nome": "Componentes"
+    },
+    {
+      "id": "3",
+      "nome": "Equipamentos"
+    }
+  ]
 }
