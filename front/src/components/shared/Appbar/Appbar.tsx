@@ -58,6 +58,10 @@ export default function Appbar() {
         qtdCarrinho,
         openModal,
         emptyCart,
+        searchTerm,
+        searchResults,
+        handleSelectProduct,
+        handleSearchChange,
         openStorageCart,
         handleLimparCarrinho,
         handleCloseModal,
@@ -93,9 +97,24 @@ export default function Appbar() {
                                 <SearchIcon />
                             </SearchIconWrapper>
                             <StyledInputBase
-                                placeholder="Search…"
+                                placeholder="Busque…"
                                 inputProps={{ 'aria-label': 'search' }}
+                                value={searchTerm}
+                                onChange={handleSearchChange}
                             />
+                            {searchResults.length > 0 && (
+                                <Box className="absolute z-50 bg-white mt-2 shadow-lg rounded w-72 max-h-60 overflow-y-auto">
+                                    {searchResults.map(produto => (
+                                        <div
+                                            key={produto.id}
+                                            className="p-2 hover:bg-gray-100 cursor-pointer text-sm text-black"
+                                            onClick={() => handleSelectProduct(produto.id)}
+                                        >
+                                            {produto.nome}
+                                        </div>
+                                    ))}
+                                </Box>
+                            )}
                         </Search>
 
                         <Box sx={{ flexGrow: 1 }} />

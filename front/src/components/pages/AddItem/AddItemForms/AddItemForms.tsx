@@ -27,81 +27,137 @@ export default function AddItemForms() {
     const navigate = useNavigate()
 
     return (<>
-        <div className="w-full flex flex-col justify-center items-center h-screen">
+        <div className="w-full flex flex-col justify-center items-center min-h-screen p-4">
+            <Paper className="p-6 w-full max-w-7xl">
+                <p className="text-3xl font-bold text-center mb-4">Painel do Criador:</p>
+                <hr className="text-gray-400 mb-4" />
 
-            <Paper className="p-10 w-11/12">
-                <p className="text-3xl font-bold text-center">Painel do Criador:</p>
-                <hr className="text-gray-400" />
-                <Paper className="flex justify-around p-5">
-                    <Paper className="w-5/12">
+                <Paper className="flex flex-col lg:flex-row justify-around p-5 space-y-6 lg:space-y-0 lg:space-x-6">
+                    {/* Formulário de Produto */}
+                    <Paper className="w-full lg:w-1/2">
                         <p className="text-xl p-2 font-semibold text-center text-gray-800">Adicione um Produto:</p>
-                        <hr className="text-gray-400 ml-5 mr-5" />
-                        <Paper className="p-8 flex flex-col space-y-4">
+                        <hr className="text-gray-400 ml-5 mr-5 mb-4" />
+                        <Paper className="p-6 flex flex-col space-y-4">
                             <div>
-                                <TextField label="Nome do Produto" name="nome" value={product.nome} error={validationResult.nome} onChange={handleProductChange} className="w-full" />
+
+                                <TextField
+                                    label="Nome do Produto"
+                                    name="nome"
+                                    value={product.nome}
+                                    error={validationResult.nome}
+                                    onChange={handleProductChange}
+                                    className="w-full"
+                                />
                             </div>
                             <div>
-                                <TextField label="Descrição do Produto" name="descricao" value={product.descricao} error={validationResult.descricao} onChange={handleProductChange} className="w-full" />
+
+                                <TextField
+                                    label="Descrição do Produto"
+                                    name="descricao"
+                                    value={product.descricao}
+                                    error={validationResult.descricao}
+                                    onChange={handleProductChange}
+                                    className="w-full"
+                                />
                             </div>
                             <div>
-                                <TextField label="Preço do Produto" type="number" name="preco" value={product.preco} error={validationResult.preco} onChange={handleProductChange} className="w-1/2" />
+
+                                <TextField
+                                    label="Preço do Produto"
+                                    type="number"
+                                    name="preco"
+                                    value={product.preco}
+                                    error={validationResult.preco}
+                                    onChange={handleProductChange}
+                                    className="w-full"
+                                />
                             </div>
                             <div>
-                                <TextField label="Categoria" type="number" name="categoria" value={product.categoria} error={validationResult.categoria} onChange={handleProductChange} className="w-1/2" />
+
+                                <TextField
+                                    label="Categoria"
+                                    type="number"
+                                    name="categoria"
+                                    value={product.categoria}
+                                    error={validationResult.categoria}
+                                    onChange={handleProductChange}
+                                    className="w-full"
+                                />
                             </div>
                             <div>
-                                <TextField label="Link da Imagem do Protudo" name="image" value={product.image} error={validationResult.image} onChange={handleProductChange} className="w-full" />
+
+                                <TextField
+                                    label="Link da Imagem do Produto"
+                                    name="image"
+                                    value={product.image}
+                                    error={validationResult.image}
+                                    onChange={handleProductChange}
+                                    className="w-full"
+                                />
                             </div>
-                            <div>
-                                <Button variant="contained" className="flex" onClick={() => { setModal(true); setIsProduct(true); setIsCategory(false) }}>Salvar</Button>
-                            </div>
+                            <Button
+                                variant="contained"
+                                className="w-full"
+                                onClick={() => { setModal(true); setIsProduct(true); setIsCategory(false) }}
+                            >
+                                Salvar Produto
+                            </Button>
                         </Paper>
                     </Paper>
 
-
-                    <Paper className="w-5/12 flex flex-col justify-between">
+                    {/* Formulário de Categoria */}
+                    <Paper className="w-full lg:w-1/2 flex flex-col justify-between">
                         <div>
                             <p className="text-xl p-2 font-semibold text-center text-gray-800">Adicione uma Categoria:</p>
-                            <hr className="text-gray-400 ml-5 mr-5" />
-                            <Paper className="p-8 flex flex-col space-y-4">
+                            <hr className="text-gray-400 ml-5 mr-5 mb-4" />
+                            <Paper className="p-6 flex flex-col space-y-4">
                                 <div>
-                                    <TextField label="Nome da Categoria" error={categoryValidateError} helperText={categoryValidateError ? "Campo Obrigatório" : ""} value={categoryName} onChange={handleCategoryChange} className="w-full" />
+
+                                    <TextField
+                                        label="Nome da Categoria"
+                                        error={categoryValidateError}
+                                        helperText={categoryValidateError ? "Campo Obrigatório" : ""}
+                                        value={categoryName}
+                                        onChange={handleCategoryChange}
+                                        className="w-full"
+                                    />
                                 </div>
-                                <div>
-                                    <Button variant="contained" className="flex" onClick={() => { setModal(true); setIsProduct(false); setIsCategory(true) }}>Salvar</Button>
-                                </div>
+                                <Button
+                                    variant="contained"
+                                    className="w-full"
+                                    onClick={() => { setModal(true); setIsProduct(false); setIsCategory(true) }}
+                                >
+                                    Salvar Categoria
+                                </Button>
                             </Paper>
                         </div>
 
-                        <div className="mt-auto p-4">
-                            <Button variant="outlined" className="shadow-xl" fullWidth onClick={() => navigate('/')}>Voltar à Navegação</Button>
+                        <div className="mt-4 lg:mt-auto p-4">
+                            <Button
+                                variant="outlined"
+                                fullWidth
+                                className="shadow-xl"
+                                onClick={() => navigate('/')}
+                            >
+                                Voltar à Navegação
+                            </Button>
                         </div>
                     </Paper>
                 </Paper>
             </Paper>
         </div>
+
+        {/* Modal e Snackbars */}
         <ConfirmationModal onConfirm={manage} open={modal} onClose={handleCloseModal} />
         <Snackbar open={successSnackbar} autoHideDuration={2000} onClose={handleCloseSnackbar}>
-            <Alert
-                onClose={handleCloseSnackbar}
-                severity="success"
-                variant="filled"
-                sx={{ width: '100%' }}
-            >
+            <Alert onClose={handleCloseSnackbar} severity="success" variant="filled" sx={{ width: '100%' }}>
                 {successSnackbarMessage}
             </Alert>
         </Snackbar>
         <Snackbar open={errorSnackbar} autoHideDuration={2000} onClose={handleCloseSnackbar}>
-            <Alert
-                onClose={handleCloseSnackbar}
-                severity="error"
-                variant="filled"
-                sx={{ width: '100%' }}
-            >
+            <Alert onClose={handleCloseSnackbar} severity="error" variant="filled" sx={{ width: '100%' }}>
                 {errorSnackbarMessage}
             </Alert>
         </Snackbar>
-    </>
-
-    )
+    </>)
 }
